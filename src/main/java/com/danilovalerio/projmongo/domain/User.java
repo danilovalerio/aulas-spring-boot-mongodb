@@ -3,8 +3,13 @@ package com.danilovalerio.projmongo.domain;
 //para que os dados trafeguem por redes e arquivos no formato de bytes
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document //notação para indicar que é uma coleção do mongodb ou @Document(collection="user")
 public class User implements Serializable{
 	
+	@Id //para indicar que o atributo abaixo é o Id
 	private String id;
 	private String nome;
 	private String email;
