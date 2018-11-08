@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.danilovalerio.projmongo.domain.User;
+import com.danilovalerio.projmongo.dto.UserDTO;
 import com.danilovalerio.projmongo.repository.UserRepository;
 import com.danilovalerio.projmongo.services.exception.ObjectNotFoundException;
 
@@ -29,6 +30,14 @@ public class UserService {
 		//Se o bjeto por falso retorna uma exception com a msg.
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado!")); 
 		
+	}
+	
+	public User inserir(User obj) {
+		return repo.insert(obj);
+	}
+	
+	public User fromDTO(UserDTO objDto) {
+		return new User(objDto.getId(), objDto.getNome(), objDto.getEmail());
 	}
 
 }
