@@ -8,8 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document //notação para indicar que é uma coleção do mongodb ou @Document(collection="user")
 public class User implements Serializable{
+	private static final long serialVersionUID = 1L;
 	
-	@Id //para indicar que o atributo abaixo é o Id
+	@Id //para indicar que o atributo abaixo é o Id no mongodb
 	private String id;
 	private String nome;
 	private String email;
