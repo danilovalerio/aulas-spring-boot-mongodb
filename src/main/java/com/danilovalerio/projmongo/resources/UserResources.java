@@ -56,5 +56,12 @@ public class UserResources {
 		return ResponseEntity.created(uri).build(); //Created retorna o 201 quando criamos novo recurso
 		
 	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable String id){ 
+		service.delete(id);
+		return ResponseEntity.noContent().build(); 
+		
+	}
 
 }
