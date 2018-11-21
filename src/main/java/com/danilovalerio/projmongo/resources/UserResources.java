@@ -63,5 +63,16 @@ public class UserResources {
 		return ResponseEntity.noContent().build(); 
 		
 	}
+	
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> atualizar(@RequestBody UserDTO objDto, @PathVariable String id) {
+		User obj = service.fromDTO(objDto);
+		obj.setId(id);//garantimos que o objeto terá o id da transposição
+		obj = service.atualizar(obj);
+		
+		return ResponseEntity.noContent().build(); //Created retorna o 201 quando criamos novo recurso
+		
+	}
 
 }
